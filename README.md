@@ -149,6 +149,9 @@ butas/
 ├─ VERSION
 ├─ README.md
 ├─ CHANGELOG.md
+├─ LICENSE                      # MIT
+├─ THIRD_PARTY_NOTICES.md       # font ve Qt bildirimleri
+├─ docs/                        # README görselleri (ikon + ekran görüntüleri)
 ├─ android/                     # özel manifest + uygulama ikonu (res/)
 ├─ scripts/                     # build_apk.sh, generate_icon.py
 ├─ app/
