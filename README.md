@@ -1,9 +1,15 @@
-# BUTAS — Tek Ekran Bütçe Takibi (Qt Widgets / C++)
+# <img src="docs/ikon.png" width="42" align="top" alt="BUTAS ikonu"/> BUTAS — Tek Ekran Bütçe Takibi (Qt Widgets / C++)
 
 Tek ekranlı mobil bütçe takip uygulaması. Qt 6 Widgets ile saf C++ olarak
 geliştirilmiştir. Tasarım ve davranış orijinal HTML prototipine birebir
 sadıktır: renk ölçeği (zinc-*), yuvarlama yarıçapları, harf aralığı
 (letter-spacing) ve iş akışı aynen korunmuştur.
+
+## Ekran Görüntüleri
+
+| Ana Ekran | Para Ekle | Gelir Ekle |
+|---|---|---|
+| ![Ana ekran](docs/ekran-ana.png) | ![Para Ekle](docs/ekran-para-ekle.png) | ![Gelir Ekle](docs/ekran-gelir-ekle.png) |
 
 ## İndirme
 
