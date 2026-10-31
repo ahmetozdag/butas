@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/fonts">
+        <file alias="SpaceGrotesk.ttf">assets/fonts/SpaceGrotesk.ttf</file>
+        <file alias="MaterialSymbolsOutlined.ttf">assets/fonts/MaterialSymbolsOutlined.ttf</file>
+    </qresource>
+</RCC>

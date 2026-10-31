@@ -1,0 +1,36 @@
+# Derleme çıktıları
+build/
+build-*/
+cmake-build-*/
+android-build/
+*.o
+*.so
+*.a
+*.apk
+*.aab
+
+# Android / Gradle
+.gradle/
+local.properties
+*.iml
+
+# İmzalama anahtarları — ASLA commit edilmemeli
+*.jks
+*.keystore
+*.p12
+
+# IDE / editör
+.idea/
+.vscode/
+*.user
+*.user.*
+compile_commands.json
+
+# İşletim sistemi
+.DS_Store
+Thumbs.db
+
+# Uygulama / test çıktıları
+state.json
+*.dump
+/*.png

@@ -1,0 +1,12 @@
+# Satır sonlarını tüm platformlarda LF'e sabitle
+* text=auto eol=lf
+
+# İkili dosyalar
+*.ttf binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.apk binary
+*.aab binary
+*.jks binary
+*.keystore binary
