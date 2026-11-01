@@ -88,8 +88,11 @@ BUILD_DIR=/yol/build \
 
 ```bash
 zipalign -f -p 4 <imzasız-apk-yolu> aligned.apk
-apksigner sign --ks <keystore-yolu> --out butas-v1.0.apk aligned.apk
+apksigner sign --ks /BUTAS/keys/butas.keystore --out butas-v1.0.apk aligned.apk
 ```
+
+Keystore proje klasörünün dışında, `/BUTAS/keys/` altında tutulur
+ve asla reposuna (GitHub'a) gönderilmez.
 
 ### Telefona Kurulum
 
