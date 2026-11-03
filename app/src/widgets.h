@@ -217,9 +217,42 @@ private:
     bool m_negative;
 };
 
+struct MoneySource {
+    QString id;
+    QString name;
+    double balance = 0.0;
+    bool canGoNegative = false;
+};
+
+inline QString normalizedSourceName(const QString &name)
+{
+    QString out;
+    out.reserve(name.size());
+    for (QChar ch : name) {
+        ushort u = ch.unicode();
+        switch (u) {
+        case 0x0130: case 0x0131: case 'I': case 'i': u = 'i'; break;
+        case 0x015E: case 0x015F: u = 's'; break;
+        case 0x011E: case 0x011F: u = 'g'; break;
+        case 0x00DC: case 0x00FC: u = 'u'; break;
+        case 0x00D6: case 0x00F6: u = 'o'; break;
+        case 0x00C7: case 0x00E7: u = 'c'; break;
+        default: break;
+        }
+        out += QChar(u).toLower();
+    }
+    return out;
+}
+
+inline bool isNakitSourceName(const QString &name)
+{
+    return normalizedSourceName(name) == QLatin1String("nakit");
+}
+
 struct Transaction {
     bool isAdd;
     double amount;
+    QString sourceId;
 };
 
 class ChipsList : public QWidget

@@ -22,15 +22,17 @@ qt_add_executable(butas
     app/src/widgets.h
     app/src/panel.h
     app/src/modals.h
+    app/src/controls.h
     app/src/modal_boxes.h
+    app/src/sources.h
     app/src/mainwindow.h
     app/resources.qrc
 )
 
 set_target_properties(butas PROPERTIES
     QT_ANDROID_PACKAGE_NAME "org.butas.app"
-    QT_ANDROID_VERSION_NAME "1.0"
-    QT_ANDROID_VERSION_CODE 3
+    QT_ANDROID_VERSION_NAME "2.0"
+    QT_ANDROID_VERSION_CODE 4
     QT_ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android"
 )
 

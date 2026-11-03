@@ -24,6 +24,7 @@ namespace Theme {
     inline const QColor zinc800_80bg= QColor(31, 31, 35, 204);
     inline const QColor black75     = QColor(0, 0, 0, 191);
     inline const QColor zinc200     = QColor(0xE4, 0xE4, 0xE7);
+    inline const QColor red400      = QColor(0xF8, 0x71, 0x71);
 
     inline const QString appFont    = QStringLiteral("Space Grotesk");
     inline const QString symbolFont = QStringLiteral("Material Symbols Outlined");
@@ -37,6 +38,9 @@ namespace Theme {
     inline const QChar GLYPH_CHEVRON_RIGHT = QChar(0xE5CC);
     inline const QChar GLYPH_CLOSE         = QChar(0xE5CD);
     inline const QChar GLYPH_DELETE        = QChar(0xE92E);
+    inline const QChar GLYPH_ADD           = QChar(0xE145);
+    inline const QChar GLYPH_EDIT          = QChar(0xE3C9);
+    inline const QChar GLYPH_EXPAND_MORE   = QChar(0xE5CF);
 
     inline QFont font(double px, QFont::Weight weight) {
         QFont f(appFont);

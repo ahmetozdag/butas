@@ -57,8 +57,24 @@ int main(int argc, char *argv[]){
                 else if (modalEnv == "3") w.debugOpenRecurringModal(true);
                 else if (modalEnv == "4") w.debugOpenRecurringModal(false);
                 else if (modalEnv == "5") w.debugOpenDeleteModal(0);
+                else if (modalEnv == "6") w.debugOpenSourceCreate();
+                else if (modalEnv == "7"){
+                    const QString name = qEnvironmentVariable("BUTAS_SOURCE");
+                    if (name.isEmpty()) w.debugOpenSourceInfo();
+                    else w.debugOpenSourceInfoNamed(name);
+                }
+                else if (modalEnv == "8"){
+                    w.debugOpenActionModal(true);
+                    QTimer::singleShot(400, &w, [&w]() { w.debugOpenSourceMenu(); });
+                }
+                else if (modalEnv == "9") w.debugActionError(1);
+                else if (modalEnv == "10") w.debugActionError(2);
+                else if (modalEnv == "11") w.debugSourceError(1);
+                else if (modalEnv == "12") w.debugSourceError(2);
+                else if (modalEnv == "13") w.debugOpenSourceDeleteNamed(QStringLiteral("Ziraat"));
             });
-            QTimer::singleShot(1400, &w, [&w, shotPath](){
+            const int shotDelay = modalEnv == "8" ? 1800 : 1400;
+            QTimer::singleShot(shotDelay, &w, [&w, shotPath](){
                 w.grab().save(QString::fromUtf8(shotPath));
                 QCoreApplication::quit();
             });

@@ -1,5 +1,33 @@
 # BUTAS — Sürüm Kaydı
 
+## 2.0 — 2026-11-01
+
+Para kaynakları sürümü.
+
+- Uygulama: `org.butas.app`, versionName **2.0**, versionCode **4**
+- APK: `/BUTAS/butas-v2.0.apk` (imzalı, arm64-v8a, minSdk 23, targetSdk 34)
+- Kalıcılık: `state.json` sürüm 2 (uygulamanın özel veri dizini)
+
+### Bu sürümde tamamlananlar
+
+- **Para kaynakları:** Gelir/Gider butonlarının altında "Kaynaklar" paneli.
+  Kaynak ekleme (＋), yeniden adlandırma ve silme. Satırlarda yalnızca ad
+  görünür; eksi bakiyeli kaynak soluk gösterilir.
+- **Nakit** varsayılan kaynak olarak 0,00 ₺ ile gelir; silinemez, yeniden
+  adlandırılamaz ve eksiye düşemez. Başka kaynak "Nakit" adını alamaz
+  (büyük/küçük harf ve Türkçe karakter duyarsız).
+- **Kaynak bilgi kartı:** ortada kaynak adı, bakiye, son 5 işlem ve
+  "Eksiye düşebilir mi?" Evet/Hayır anahtarı (anında uygulanır).
+- **Toplam bütçe** artık kaynak bakiyelerinin toplamıdır; ayrı bakiye
+  alanı kaldırıldı.
+- **Para Ekle / Para Çıkar:** miktarın altında kaynak açılır listesi;
+  "Kaynak Ekle" listenin en üstünde. Kaynak seçilmeden onaylanamaz
+  ("Kaynak seçiniz"). Bakiye yetersizse işlem engellenir
+  ("Yeterli bakiye bulunmuyor").
+- Kaynak silinince bakiyesi bütçeden düşer; işlem geçmişi korunur.
+- **1.0 → 2.0 geçişi:** temiz başlangıç; eski bakiye yok sayılır, işlemler
+  ve düzenli gelir/giderler korunur.
+
 ## 1.0 — 2026-10-30
 
 İlk sürüm. Tüm düzeltmeler tamamlandı.

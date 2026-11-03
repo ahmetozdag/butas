@@ -14,21 +14,31 @@ sadıktır: renk ölçeği (zinc-*), yuvarlama yarıçapları, harf aralığı
 ## İndirme
 
 Derlenmiş Android APK için [Releases](../../releases/latest) sayfasını
-kullanın. En güncel sürüm: **v1.0**.
+kullanın. En güncel sürüm: **v2.0**.
 
-- `butas-v1.0.apk` — imzalı, arm64-v8a, minSdk 23, targetSdk 34
-- SHA-256: `7ed5d9142aa46a4122a3c1409d2ebc9f062266e4c5bdc3bb62c4380c07ba96bc`
+- `butas-v2.0.apk` — imzalı, arm64-v8a, minSdk 23, targetSdk 34
+- SHA-256: `021e30ecfc6b05008ba51759c7d914df40dc1f1ab3843516ed26da8d366589b1`
 
 Kurulum: APK'yı telefona kopyalayıp dokunun, "Bilinmeyen kaynaklara izin ver"
-isteğini onaylayın. USB ile: `adb install -r butas-v1.0.apk`
+isteğini onaylayın. USB ile: `adb install -r butas-v2.0.apk`
 
 ## Ekranlar / İşlevler
 
 - **Toplam Bütçe:** Üstte büyük yazıyla gösterilir (ör. "63.198,64 ₺";
-  negatifse "-" öneki ile).
-- **Para Ekle / Para Çıkar:** Açılan modal'da tutar girilir (₺ son eki).
-  Onayla ile bütçe güncellenir ve işlem listesinin başına eklenir.
-  En fazla 10 işlem tutulur (en yeni başta).
+  negatifse "-" öneki ile). Değer, tüm para kaynaklarının bakiyeleri
+  toplamıdır; negatif olabilir.
+- **Para Kaynakları:** Gelir Ekle / Gider Ekle altındaki "Kaynaklar"
+  paneli. Kaynak ekleme (＋), yeniden adlandırma (kalem) ve silme (çöp).
+  Satırda yalnızca ad görünür; eksi bakiyeli kaynak soluk gösterilir.
+  Kaynak satırına dokununca bilgi kartı açılır (bakiye, son 5 işlem,
+  "Eksiye düşebilir mi?" Evet/Hayır anahtarı).
+  **Nakit** varsayılan kaynaktır; silinemez, yeniden adlandırılamaz ve
+  eksiye düşemez. Başka bir kaynak "Nakit" adını alamaz.
+- **Para Ekle / Para Çıkar:** Açılan modal'da tutar (₺ son eki) ve kaynak
+  seçimi (açılır liste; en üstte "Kaynak Ekle"). Kaynak seçilmeden
+  onaylanamaz. Bakiye yetersizse işlem engellenir.
+  Onayla ile ilgili kaynağın bakiyesi ve toplam bütçe güncellenir; işlem
+  listesinin başına eklenir. En fazla 10 işlem tutulur (en yeni başta).
   Enter = onayla, Escape = kapat, arka plana tıklama = kapat.
 - **Aylık Düzenli Gelir/Gider Paneli:** Gelir Ekle / Gider Ekle modal'ı.
   Döviz seçimi (TL ₺ / Dolar $ / Euro €). Miktar + Açıklama.
@@ -37,9 +47,11 @@ isteğini onaylayın. USB ile: `adb install -r butas-v1.0.apk`
   animasyonu, arka plan bulanıklaştırma (box-blur).
 - **Uygulama İkonu:** Kömür grisi zemin, Space Grotesk Bold beyaz **BTA**
   (adaptive icon + tüm yoğunluklar).
-- **Kalıcılık:** Bakiye, son işlemler ve aylık düzenli gelir/giderler
-  uygulama kapanıp açıldığında korunur (`state.json`).
-  İlk açılışta bakiye `0,00 ₺` olarak başlar, listeler boştur.
+- **Kalıcılık:** Para kaynakları, son işlemler ve aylık düzenli
+  gelir/giderler uygulama kapanıp açıldığında korunur (`state.json`).
+  İlk açılışta yalnızca `0,00 ₺` bakiyeli **Nakit** kaynağı bulunur.
+  1.0 verisi 2.0'a geçerken temiz başlangıç yapılır: eski bakiye yok
+  sayılır, işlemler ve düzenli gelir/giderler korunur.
 - **Kaydırma:** Kopyalanma/üst üste binme olmaması için sayfa her
   kaydırma adımında tamamen yeniden çizilir.
 
@@ -88,7 +100,7 @@ BUILD_DIR=/yol/build \
 
 ```bash
 zipalign -f -p 4 <imzasız-apk-yolu> aligned.apk
-apksigner sign --ks /BUTAS/keys/butas.keystore --out butas-v1.0.apk aligned.apk
+apksigner sign --ks /BUTAS/keys/butas.keystore --out butas-v2.0.apk aligned.apk
 ```
 
 Keystore proje klasörünün dışında, `/BUTAS/keys/` altında tutulur
@@ -100,7 +112,7 @@ ve asla reposuna (GitHub'a) gönderilmez.
 2. Telefonda dosyaya dokun; "Bilinmeyen kaynaklara izin ver" isteğini onayla.
 3. Kurulum biter, uygulama listesinde **BUTAS** olarak görünür.
 
-USB ile: `adb install -r butas-v1.0.apk`
+USB ile: `adb install -r butas-v2.0.apk`
 
 ### Android'e Özgü Uyarlamalar
 

@@ -234,6 +234,14 @@ public:
             m_card->update();
     }
 
+    void relayoutCard(){
+        if (!isVisible()) return;
+        layoutCard();
+        reposition();
+        m_card->show();
+        update();
+    }
+
     explicit ModalDialog(QWidget *parent = nullptr) : QWidget(parent){
         m_card = new RoundedCard(this);
         m_cardLayout = new QVBoxLayout(m_card);
@@ -273,11 +281,15 @@ public:
     QVBoxLayout *cardLayout() const { return m_cardLayout; }
     ModalTitleBar *titleBar() const { return m_titleBar; }
 
+    virtual double cardMaxWidth() const { return 320.0; }
+
     virtual void onOpened() = 0;
 
     void layoutCard(){
-        const double bw = std::min(320.0, double(parentWidget()->width() - 48));
+        m_cardLayout->invalidate();
+        const double bw = std::min(cardMaxWidth(), double(parentWidget()->width() - 48));
         m_card->setFixedSize(int(bw), m_card->sizeHint().height());
+        m_cardLayout->activate();
         QImage snap(m_card->width(), m_card->height(), QImage::Format_ARGB32_Premultiplied);
         snap.fill(Qt::transparent);
         QPainter sp(&snap);
